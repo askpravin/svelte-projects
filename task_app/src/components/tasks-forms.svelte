@@ -1,9 +1,14 @@
 <script lang="ts">
   let newTask = $state("");
+  let {
+    addTasks,
+  }: {
+    addTasks: (task: string) => void;
+  } = $props();
   function formSubmitted(e: SubmitEvent) {
     e.preventDefault();
-    console.log(newTask);
-    console.log("Form submitted");
+    addTasks(newTask);
+    newTask = "";
   }
 </script>
 
